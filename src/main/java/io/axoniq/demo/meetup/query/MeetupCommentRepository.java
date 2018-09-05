@@ -9,5 +9,5 @@ import java.util.List;
  */
 public interface MeetupCommentRepository extends JpaRepository<MeetupComment, String> {
 
-    List<MeetupComment> findMessagesByMeetupId(String meetupId);
+    List<MeetupComment> findCommentsByMeetupId(String meetupId);
 }
