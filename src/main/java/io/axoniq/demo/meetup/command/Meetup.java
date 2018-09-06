@@ -23,27 +23,44 @@ import static org.axonframework.commandhandling.model.AggregateLifecycle.markDel
 @Aggregate
 public class Meetup {
 
+    @AggregateIdentifier
+    private String meetupId;
+    private String host;
+
     public Meetup() {
         // used by Axon
     }
 
     @CommandHandler
     public Meetup(CreateMeetupCommand command) {
+        apply(new MeetupCreatedEvent(command.getMeetupId(),
+                                     command.getTopic(),
+                                     command.getUser()));
     }
 
     @EventSourcingHandler
     public void on(MeetupCreatedEvent event) {
+        this.meetupId = event.getMeetupId();
+        this.host = event.getUser();
     }
 
     @CommandHandler
     public void handle(CommentOnTopicCommand command) {
+        apply(new TopicCommentedEvent(command.getMeetupId(),
+                                      command.getComment(),
+                                      command.getUser()));
     }
 
     @CommandHandler
     public void handle(CloseMeetupCommand command) {
+        if (!host.equals(command.getUser())) {
+            throw new IllegalArgumentException("Only host can close the meetup.");
+        }
+        apply(new MeetupClosedEvent(command.getMeetupId(), command.getUser()));
     }
 
     @EventSourcingHandler
     public void on(MeetupClosedEvent event) {
+        markDeleted();
     }
 }

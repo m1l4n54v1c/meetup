@@ -2,6 +2,7 @@ package io.axoniq.demo.meetup.web;
 
 import io.axoniq.demo.meetup.api.CloseMeetupCommand;
 import io.axoniq.demo.meetup.api.CommentOnTopicCommand;
+import io.axoniq.demo.meetup.api.MeetupCommentsQuery;
 import io.axoniq.demo.meetup.query.MeetupComment;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.axonframework.queryhandling.QueryGateway;
@@ -39,7 +40,7 @@ public class MeetupCommentsController {
     @PostMapping("/meetups")
     public Future<String> createMeetup(@RequestBody @Valid CreateMeetupRequest request,
                                        @RequestHeader("Authorization") String user) {
-        return null;
+        return commandGateway.send(request.asCommand(user));
     }
 
     @PostMapping("/meetups/{meetupId}/comments")
@@ -52,7 +53,15 @@ public class MeetupCommentsController {
     @GetMapping("/meetups/{meetupId}/comments")
     public Flux<ServerSentEvent<MeetupComment>> comments(@PathVariable String meetupId) {
         return Flux.<MeetupComment>create(emitter -> {
-            // TODO: issue a subscription query
+            SubscriptionQueryResult<List<MeetupComment>, MeetupComment> queryResult = queryGateway
+                    .subscriptionQuery(new MeetupCommentsQuery(meetupId),
+                                       ResponseTypes.multipleInstancesOf(MeetupComment.class),
+                                       ResponseTypes.instanceOf(MeetupComment.class));
+            queryResult.initialResult()
+                       .subscribe(comments -> comments.forEach(emitter::next));
+            queryResult.updates()
+                       .doOnComplete(emitter::complete)
+                       .subscribe(emitter::next);
         }).map(this::buildSSE);
     }
 

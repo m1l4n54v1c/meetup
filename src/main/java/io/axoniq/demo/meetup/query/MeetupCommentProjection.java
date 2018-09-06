@@ -36,14 +36,19 @@ public class MeetupCommentProjection {
                                                         event.getUser(),
                                                         event.getComment(),
                                                         timestamp);
+        meetupCommentRepository.saveAndFlush(meetupComment);
+        queryUpdateEmitter.emit(MeetupCommentsQuery.class,
+                                query -> query.matches(event.getMeetupId()),
+                                meetupComment);
     }
 
     @EventHandler
     public void on(MeetupClosedEvent event) {
+        queryUpdateEmitter.complete(MeetupCommentsQuery.class, query -> query.matches(event.getMeetupId()));
     }
 
     @QueryHandler
     public List<MeetupComment> comments(MeetupCommentsQuery meetupCommentsQuery) {
-        return null;
+        return meetupCommentRepository.findCommentsByMeetupId(meetupCommentsQuery.getMeetupId());
     }
 }
