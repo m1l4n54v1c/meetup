@@ -1,8 +1,8 @@
 package io.axoniq.demo.meetup.api
 
-import org.axonframework.commandhandling.TargetAggregateIdentifier
+import org.axonframework.modelling.command.TargetAggregateIdentifier
 
-data class CreateMeetupCommand(val meetupId: String, val topic: String, val user: String)
+data class CreateMeetupCommand(@TargetAggregateIdentifier val meetupId: String, val topic: String, val user: String)
 data class CommentOnTopicCommand(@TargetAggregateIdentifier val meetupId: String, val comment: String, val user: String)
 data class CloseMeetupCommand(@TargetAggregateIdentifier val meetupId: String, val user: String)
 

@@ -7,14 +7,13 @@ import io.axoniq.demo.meetup.api.MeetupClosedEvent;
 import io.axoniq.demo.meetup.api.MeetupCreatedEvent;
 import io.axoniq.demo.meetup.api.TopicCommentedEvent;
 import org.axonframework.commandhandling.CommandHandler;
-import org.axonframework.commandhandling.model.AggregateIdentifier;
-import org.axonframework.commandhandling.model.CommandHandlerInterceptor;
 import org.axonframework.eventsourcing.EventSourcingHandler;
+import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 
 import static java.lang.String.format;
-import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
-import static org.axonframework.commandhandling.model.AggregateLifecycle.markDeleted;
+import static org.axonframework.modelling.command.AggregateLifecycle.apply;
+import static org.axonframework.modelling.command.AggregateLifecycle.markDeleted;
 
 /**
  * @author Milan Savic
