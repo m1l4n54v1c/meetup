@@ -1,5 +1,5 @@
 # meetup
-Demo application for Belgrade Java Community Meetup 06.09.2018.
+Demo application for Java Skop conference 30.03.2019.
 
 Business rules for Meetup application:
 
@@ -16,13 +16,12 @@ Query model:
 First, you need to build the application using maven:
 
 ```java
-mvn clean package
+mvn clean verify jib:dockerBuild
 ```
 
 Application uses [AxonServer](https://axoniq.io/product-overview/axon-server) to store events, distribute commands and queries. 
 We packaged our application in a Docker Container. Using Docker Compose we will run the application together with AxonServer:
 
 ```java
-docker-compose build
-docker-compose up
+docker-compose up -d
 ```

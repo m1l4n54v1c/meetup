@@ -1,16 +1,21 @@
-version: "3"
+version: "3.7"
 
 services:
-  meetup:
-    build: .
+
+  app:
+    hostname: meetup
+    image: meetup_app
+    environment:
+      - AXON_AXONSERVER_SERVERS=axonserver
     ports:
-      - 8080:8080
+      - '8080:8080'
     depends_on:
       - axonserver
-    network_mode: "host"
 
   axonserver:
+    hostname: axonserver
     image: axoniq/axonserver:latest
     ports:
-      - 8024:8024
-      - 8124:8124
+      - '8024:8024'
+      - '8124:8124'
+      - '8224:8224'

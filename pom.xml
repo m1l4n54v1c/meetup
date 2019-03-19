@@ -22,8 +22,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-        <axon.version>4.0</axon.version>
+        <axon.version>4.1</axon.version>
         <kotlin.version>1.2.30</kotlin.version>
+		<jib.version>1.0.0</jib.version>
 	</properties>
 
 	<dependencies>
@@ -91,6 +92,17 @@
                     </execution>
                 </executions>
             </plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${jib.version}</version>
+				<configuration>
+					<skip>false</skip>
+					<to>
+						<image>meetup_app</image>
+					</to>
+				</configuration>
+			</plugin>
         </plugins>
 	</build>
 

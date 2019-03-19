@@ -1,5 +1,5 @@
 ### create a meetup
-POST {{host}}/meetups
+POST http://localhost:8080/meetups
 Content-Type: application/json
 Authorization: milan
 
@@ -9,22 +9,22 @@ Authorization: milan
 }
 
 ### post a comment
-POST {{host}}/meetups/1/comments
+POST http://localhost:8080/meetups/1/comments
 Content-Type: text/plain
 Authorization: petar
 
 "awesome meetup"
 
 ### open comments in browser
-{{host}}/meetups/1/comments
+http://localhost:8080/meetups/1/comments
 
 ### petar deletes a meetup
-DELETE {{host}}/meetups/1
+DELETE http://localhost:8080/meetups/1
 Content-Type: application/json
 Authorization: petar
 
 ### milan deletes a meetup
-DELETE {{host}}/meetups/1
+DELETE http://localhost:8080/meetups/1
 Content-Type: application/json
 Authorization: milan
 
