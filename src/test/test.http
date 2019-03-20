@@ -16,7 +16,7 @@ Authorization: petar
 "awesome meetup"
 
 ### open comments in browser
-http://localhost:8080/meetups/1/comments
+http://localhost:9090/meetups/1/comments
 
 ### petar deletes a meetup
 DELETE http://localhost:8080/meetups/1

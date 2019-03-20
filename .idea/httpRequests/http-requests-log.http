@@ -12,6 +12,113 @@ Authorization: petar
 
 ###
 
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
+POST http://localhost:8080/meetups
+Content-Type: application/json
+Authorization: milan
+
+{
+	"meetupId": "1",
+	"topic": "axonMeetup"
+}
+
+<> 2019-03-20T050343.200.txt
+
+###
+
+DELETE http://localhost:8080/meetups/1
+Content-Type: application/json
+Authorization: milan
+
+<> 2019-03-20T043011.500.json
+
+###
+
+DELETE http://localhost:8080/meetups/1
+Content-Type: application/json
+Authorization: milan
+
+###
+
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
+POST http://localhost:8080/meetups
+Content-Type: application/json
+Authorization: milan
+
+{
+	"meetupId": "1",
+	"topic": "axonMeetup"
+}
+
+<> 2019-03-20T041820.200.txt
+
+###
+
+POST http://localhost:8080/meetups
+Content-Type: application/json
+Authorization: milan
+
+{
+	"meetupId": "1",
+	"topic": "axonMeetup"
+}
+
+<> 2019-03-20T041528.400.json
+
+###
+
+DELETE http://localhost:8080/meetups/1
+Content-Type: application/json
+Authorization: milan
+
+###
+
+POST http://localhost:8080/meetups/1/comments
+Content-Type: text/plain
+Authorization: petar
+
+"awesome meetup"
+
+###
+
 POST http://localhost:8080/meetups
 Content-Type: application/json
 Authorization: milan
@@ -411,113 +518,6 @@ Authorization: milan
 DELETE http://192.168.99.100:8080/meetups/2
 Content-Type: application/json
 Authorization: milan
-
-###
-
-POST http://192.168.99.100:8080/meetups/2/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups/2/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups/2/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups/2/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups
-Content-Type: application/json
-Authorization: milan
-
-{
-	"meetupId": "2",
-	"topic": "axonMeetup"
-}
-
-<> 2018-10-19T013837.200.txt
-
-###
-
-POST http://192.168.99.100:8080/meetups/1/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups/1/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups/1/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
-
-###
-
-POST http://192.168.99.100:8080/meetups
-Content-Type: application/json
-Authorization: milan
-
-{
-	"meetupId": "1",
-	"topic": "axonMeetup"
-}
-
-<> 2018-10-19T013018.200.txt
-
-###
-
-POST http://localhost:8080/meetups
-Content-Type: application/json
-Authorization: milan
-
-{
-	"meetupId": "1",
-	"topic": "axonMeetup"
-}
-
-###
-
-DELETE http://localhost:8080/meetups/1
-Content-Type: application/json
-Authorization: milan
-
-###
-
-POST http://localhost:8080/meetups/1/comments
-Content-Type: text/plain
-Authorization: petar
-
-"awesome meetup"
 
 ###
 
