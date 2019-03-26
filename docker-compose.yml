@@ -1,7 +1,5 @@
 version: "3.7"
-
 services:
-
   meetup-command:
     hostname: meetup-command
     image: meetup-command
@@ -9,9 +7,6 @@ services:
       - AXON_AXONSERVER_SERVERS=axonserver
     ports:
       - '8080:8080'
-    depends_on:
-      - axonserver
-
   meetup-query:
     hostname: meetup-query
     image: meetup-query
@@ -20,9 +15,6 @@ services:
       - SERVER_PORT=9090
     ports:
       - '9090:9090'
-    depends_on:
-      - axonserver
-
   axonserver:
     hostname: axonserver
     image: axoniq/axonserver:latest

@@ -17,7 +17,7 @@ public class CreateMeetupRequest {
         this.topic = topic;
     }
 
-    public CreateMeetupCommand asCommand(String user) {
+   CreateMeetupCommand asCommand(String user) {
         return new CreateMeetupCommand(meetupId, topic, user);
     }
 }
