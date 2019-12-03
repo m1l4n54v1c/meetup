@@ -27,7 +27,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <axon.version>4.1</axon.version>
+        <axon.version>4.1.1</axon.version>
         <spring.data.version>2.1.3.RELEASE</spring.data.version>
         <spring.webflux.version>2.1.3.RELEASE</spring.webflux.version>
         <h2.version>1.4.198</h2.version>
